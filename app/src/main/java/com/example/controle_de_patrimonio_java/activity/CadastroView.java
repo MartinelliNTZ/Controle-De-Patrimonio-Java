@@ -39,6 +39,7 @@ public class CadastroView extends SuperAppView implements ViewContract.CadastroV
         assert ac != null;
         ac.setDisplayHomeAsUpEnabled(true);
         ac.setTitle("");
+        ac.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.primary)) );
     }
 
     @Override
