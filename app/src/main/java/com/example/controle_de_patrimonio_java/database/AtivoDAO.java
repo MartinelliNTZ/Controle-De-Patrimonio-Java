@@ -42,7 +42,18 @@ public class AtivoDAO extends ModelDAO implements IModelDAO<Ativo> {
 
     @Override
     public boolean atualizar(Ativo ativo) {
-        return false;
+        try {
+            ContentValues cv = new ContentValues();
+            cv.put("descricao", ativo.getDescricao());
+            cv.put("valor", ativo.getValor());
+            String[] args = {String.valueOf(ativo.getId())};
+            escreve.update(DbHelper.TABELA_ATIVOS, cv, "id=?", args);
+            Log.i("INFO COX", "Ativo " + ativo.getDescricao() + " alterada com Sucesso.");
+            return true;
+        } catch (Exception e) {
+            Log.i("INFO COX", "ERRO ao alterar ativo. COD: " + e.getMessage());
+            return false;
+        }
     }
 
     @Override

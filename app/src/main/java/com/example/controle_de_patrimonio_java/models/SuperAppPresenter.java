@@ -26,4 +26,6 @@ public class SuperAppPresenter<T extends ViewContract> implements PresenterContr
     public void listarAtivos() {
         ativoList = ativoDAO.listar();
     }
+
+
 }

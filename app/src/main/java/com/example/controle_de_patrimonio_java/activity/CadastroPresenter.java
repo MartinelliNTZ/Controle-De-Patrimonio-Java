@@ -42,4 +42,5 @@ public class CadastroPresenter extends SuperAppPresenter<ViewContract.CadastroVi
     }
 
 
+
 }

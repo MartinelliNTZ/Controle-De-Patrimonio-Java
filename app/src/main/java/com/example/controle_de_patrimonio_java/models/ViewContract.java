@@ -51,6 +51,8 @@ public interface ViewContract {
          */
         void setListView(List<Ativo> ativos);
 
+
+
     }
     /**
      * Interface expecifica da Activity Cadastro
