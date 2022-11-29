@@ -22,5 +22,5 @@ Todas as classes do sistema MVP implementam um interface com os métodos, toda d
  -   <img src="apresentation/Screenshot_20221129-130640.png" width= "300px" height ="666px">
 
 # Video de apresentação
-<a href="https://youtu.be/g5iEkj95PPE" title="Vídeo de Apresentação"><img src="apresentation/cadastro.png" alt="Alternate Text" width= "300px" height ="666px"/></a>
+<a href="https://youtu.be/g5iEkj95PPE" title="Vídeo de Apresentação"><img src="apresentation/Screenshot_20221129-130611.png" alt="Alternate Text" width= "300px" height ="666px"/></a>
 
