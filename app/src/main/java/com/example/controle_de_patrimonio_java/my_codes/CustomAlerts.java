@@ -18,6 +18,10 @@ import com.google.android.material.snackbar.Snackbar;
  * Created on 06/11/2022
  * martinelli.matheus2@gmail.com
  */
+
+/**
+ * Classe responsavel por tornar mais rapido a construção de Dialogs
+ */
 public class CustomAlerts {
     private static final String BT_CONFIRMAR = "Confirmar ";
     private static final String BT_SIM = "Sucesso na execução. ";

@@ -12,6 +12,11 @@ import java.util.List;
  * Created on *28-11-2022
  * martinelli.matheus2@gmail.com
  */
+
+/**
+ * Mãe de todos os presenters implementa os métodos comuns a todos os presenters
+ * @param <T> Recebe o contrato implementado pela view em que o presenter sera declarado
+ */
 public class SuperAppPresenter<T extends ViewContract> implements PresenterContract{
     protected AtivoDAO ativoDAO;
     protected List<Ativo> ativoList = new ArrayList<>();

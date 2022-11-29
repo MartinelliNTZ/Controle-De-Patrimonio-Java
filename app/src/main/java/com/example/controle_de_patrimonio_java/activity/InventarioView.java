@@ -11,15 +11,12 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-
 import androidx.appcompat.app.AlertDialog;
-
 import com.example.controle_de_patrimonio_java.R;
 import com.example.controle_de_patrimonio_java.models.Ativo;
 import com.example.controle_de_patrimonio_java.models.SuperAppView;
 import com.example.controle_de_patrimonio_java.models.ViewContract;
 import com.example.controle_de_patrimonio_java.my_codes.CustomAlerts;
-
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.ArrayList;

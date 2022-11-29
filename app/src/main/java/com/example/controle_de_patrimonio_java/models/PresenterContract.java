@@ -39,6 +39,7 @@ public interface PresenterContract {
 
         /**
          * Recebe um ativo e atualiza o valor depreciado no banco de dados
+         *
          * @param ativo
          * @return
          */
@@ -46,6 +47,7 @@ public interface PresenterContract {
 
         /**
          * Apaga um ativo do banco de dados
+         *
          * @param ativo
          */
         void liquidarAtivo(Ativo ativo);

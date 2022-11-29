@@ -2,6 +2,7 @@ package com.example.controle_de_patrimonio_java.models;
 
 import java.util.List;
 
+
 public interface IModelDAO<T> {
 
 

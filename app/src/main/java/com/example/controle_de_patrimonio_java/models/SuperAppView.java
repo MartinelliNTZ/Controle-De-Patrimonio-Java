@@ -15,6 +15,10 @@ import java.text.DecimalFormat;
  * Created on *27-11-2022
  * martinelli.matheus2@gmail.com
  */
+
+/**
+ * Mãe das demais activitys é responsavel por implementar os métodos comuns a todas as activitys
+ */
 public class SuperAppView extends AppCompatActivity  implements ViewContract{
 
 

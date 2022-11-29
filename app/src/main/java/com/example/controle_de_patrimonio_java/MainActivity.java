@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatDelegate;
 
 import com.example.controle_de_patrimonio_java.models.SuperAppView;
 
-public class MainView extends SuperAppView {
+public class MainActivity extends SuperAppView {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

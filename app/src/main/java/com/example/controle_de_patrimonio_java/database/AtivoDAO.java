@@ -5,6 +5,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.util.Log;
+
 import com.example.controle_de_patrimonio_java.models.IModelDAO;
 import com.example.controle_de_patrimonio_java.models.ModelDAO;
 import com.example.controle_de_patrimonio_java.models.Ativo;
@@ -26,16 +27,16 @@ public class AtivoDAO extends ModelDAO implements IModelDAO<Ativo> {
 
     @Override
     public boolean salvar(Ativo ativo) {
-        try{
+        try {
             ContentValues cv = new ContentValues();
-            cv.put("descricao",ativo.getDescricao());
-            cv.put("valor",(ativo.getValor()));
-            escreve.insert( DbHelper.TABELA_ATIVOS,null,cv);
-            Log.i("INFO COX","Ativo "+ativo.getDescricao()+" criado com Sucesso. " + cv);
+            cv.put("descricao", ativo.getDescricao());
+            cv.put("valor", (ativo.getValor()));
+            escreve.insert(DbHelper.TABELA_ATIVOS, null, cv);
+            Log.i("INFO COX", "Ativo " + ativo.getDescricao() + " criado com Sucesso. " + cv);
             listar();
-            return  true;
-        }catch (Exception e) {
-            Log.i("INFO COX","ERRO ao salvar ativos. COD: " + e.getMessage());
+            return true;
+        } catch (Exception e) {
+            Log.i("INFO COX", "ERRO ao salvar ativos. COD: " + e.getMessage());
             return false;
         }
     }
@@ -82,7 +83,7 @@ public class AtivoDAO extends ModelDAO implements IModelDAO<Ativo> {
                 ativoList.add(new Ativo(id, descricao, valor));
             }
             return ativoList;
-        }catch (Exception e) {
+        } catch (Exception e) {
             Log.i("COX", "Erro ao listar produtos: " + e.getMessage());
             return null;
         }
