@@ -58,7 +58,15 @@ public class AtivoDAO extends ModelDAO implements IModelDAO<Ativo> {
 
     @Override
     public boolean deletar(Ativo ativo) {
-        return false;
+        try {
+            String[] args = {String.valueOf(ativo.getId())};
+            escreve.delete(DbHelper.TABELA_ATIVOS, "id=?", args);
+            Log.i("INFO COX", "Ativo " + ativo.getDescricao() + " deletado com Sucesso.");
+            return true;
+        } catch (Exception e) {
+            Log.i("INFO COX", "ERRO ao deletar ativo. COD: " + e.getMessage());
+            return false;
+        }
     }
 
     @Override

@@ -95,14 +95,18 @@ public class InventarioView extends SuperAppView implements ViewContract.Inventa
         btCadastrarInventario.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), com.example.controle_de_patrimonio_java.activity.CadastroView.class)));
         btLiquidar.setOnClickListener(v -> {
             Log.i("cox", "listenners: " + listView.getCheckedItemPositions());
-            CustomAlerts.imputDecimalDialog(this, "Title", "msg")
-                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            // inpu
-                        }
-                    })
-                    .create().show();
+            int position = listView.getCheckedItemPosition();
+            if (position>=0) {
+                checkedAtivo = presenter.getAtivo(position);
+                CustomAlerts.imputDecimalDialog(this, "Liquidar " +checkedAtivo.getDescricao()+" ?",
+                                "A liquidação é ireversivel e só pode ocorrer se o ativo estiver com valor abaixo de R$00,00.")
+                        .setPositiveButton("OK", (dialog, which) -> {
+                            if(checkedAtivo.getValor()<=0.0) presenter.depreciarAtivo(checkedAtivo);
+                        })
+                        .create().show();
+            }  else {
+            showMessage("Selecione um item.");
+        }
         });
         btDepreciar.setOnClickListener(v -> {
             int position = listView.getCheckedItemPosition();
@@ -113,7 +117,8 @@ public class InventarioView extends SuperAppView implements ViewContract.Inventa
                 builder.setTitle("Depreciar " + checkedAtivo.getDescricao() + " ?");
                 Double min = checkedAtivo.getValor() * .1;
                 builder.setMessage("O valor minimo de depreciação é " + numberFormat.format(min)
-                        + "\n O valor maximo de depreciação é " + numberFormat.format(checkedAtivo.getValor()));
+//                         +"\n O valor maximo de depreciação é " + numberFormat.format(checkedAtivo.getValor())
+                );
 
                 final EditText input = new EditText(this);
                 input.setInputType(InputType.TYPE_NUMBER_FLAG_DECIMAL);
@@ -123,7 +128,9 @@ public class InventarioView extends SuperAppView implements ViewContract.Inventa
                 builder.setPositiveButton("OK", (dialog, which) -> {
                     try {
                         double value = Double.parseDouble(input.getText().toString());
-                        if (value >= min && value <= checkedAtivo.getValor()) {
+                        if (value >= min
+//                               && value <= checkedAtivo.getValor()
+                        ) {
                             checkedAtivo.setValor(checkedAtivo.getValor() - value);
                             presenter.depreciarAtivo(checkedAtivo);
                         } else {
@@ -133,12 +140,7 @@ public class InventarioView extends SuperAppView implements ViewContract.Inventa
                         showMessage("Caracteres inválidos");
                     }
                 });
-                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.cancel();
-                    }
-                });
+                builder.setNegativeButton("Cancel", (dialog, which) -> dialog.cancel());
 
                 builder.create().show();
             } else {

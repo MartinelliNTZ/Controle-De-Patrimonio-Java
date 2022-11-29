@@ -43,6 +43,12 @@ public interface PresenterContract {
          * @return
          */
         boolean depreciarAtivo(Ativo ativo);
+
+        /**
+         * Apaga um ativo do banco de dados
+         * @param ativo
+         */
+        void liquidarAtivo(Ativo ativo);
     }
 
 

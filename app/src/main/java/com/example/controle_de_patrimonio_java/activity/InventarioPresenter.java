@@ -49,6 +49,16 @@ public class InventarioPresenter extends SuperAppPresenter<ViewContract.Inventar
             view.showMessageError("Ocorreu um erro","");
             return false;
         }
+    }
 
+    @Override
+    public void liquidarAtivo(Ativo ativo) {
+        if (ativoDAO.deletar(ativo)){
+            view.showMessage("Sucesso ao liquidar "+ativo.getDescricao());
+            listarAtivos();
+
+        }else{
+            view.showMessageError("Ocorreu um erro","");
+        }
     }
 }
