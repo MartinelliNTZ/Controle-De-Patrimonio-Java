@@ -2,6 +2,7 @@
 <resources>
     <color name="primary">#086366</color>
     <color name="secundary">#33B3B8</color>
+    <color name="secundary_50">#5033B3B8</color>
     <color name="light_green">#9AB4B5</color>
     <color name="light_green_50">#509AB4B5</color>
     <color name="light_brown">#D59B57</color>

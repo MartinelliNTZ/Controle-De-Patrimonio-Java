@@ -98,11 +98,16 @@ public class InventarioView extends SuperAppView implements ViewContract.Inventa
             int position = listView.getCheckedItemPosition();
             if (position>=0) {
                 checkedAtivo = presenter.getAtivo(position);
-                CustomAlerts.imputDecimalDialog(this, "Liquidar " +checkedAtivo.getDescricao()+" ?",
+                CustomAlerts.dialog(this, "Liquidar " +checkedAtivo.getDescricao()+" ?",
                                 "A liquidação é ireversivel e só pode ocorrer se o ativo estiver com valor abaixo de R$00,00.")
-                        .setPositiveButton("OK", (dialog, which) -> {
-                            if(checkedAtivo.getValor()<=0.0) presenter.depreciarAtivo(checkedAtivo);
+                        .setPositiveButton("Continuar?", (dialog, which) -> {
+                            if(checkedAtivo.getValor()<=0.0) {
+                                presenter.liquidarAtivo(checkedAtivo);
+                            }else{
+                                showMessage("Valor do ativo deve estar abaixo de R$00.00");
+                            }
                         })
+                        .setNegativeButton("Não",null)
                         .create().show();
             }  else {
             showMessage("Selecione um item.");
@@ -141,8 +146,9 @@ public class InventarioView extends SuperAppView implements ViewContract.Inventa
                     }
                 });
                 builder.setNegativeButton("Cancel", (dialog, which) -> dialog.cancel());
-
+                input.requestFocus();
                 builder.create().show();
+
             } else {
                 showMessage("Selecione um item.");
             }

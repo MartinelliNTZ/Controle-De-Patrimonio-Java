@@ -10,7 +10,7 @@
         />
 
     <solid
-        android:color="@color/light_green_50"
+        android:color="@color/secundary_50"
         />
 
 </shape>

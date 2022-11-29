@@ -52,7 +52,7 @@ public class CustomAlerts {
         return dialog;
 
     }
-    public static AlertDialog.Builder dialogSim(Context context,String mensagem, String titulo){
+    public static AlertDialog.Builder dialogSim(Context context,String titulo,String mensagem){
 
         //Instanciar AlertDialog
         AlertDialog.Builder dialog = new AlertDialog.Builder( context );
@@ -78,7 +78,7 @@ public class CustomAlerts {
         return dialog;
 
     }
-    public static AlertDialog.Builder dialogSim(Context context,String mensagem, String titulo, int iconID){
+    public static AlertDialog.Builder dialogSim(Context context,String titulo,String mensagem, int iconID){
 
         //Instanciar AlertDialog
         AlertDialog.Builder dialog = new AlertDialog.Builder( context );
@@ -127,7 +127,7 @@ public class CustomAlerts {
         return dialog;
 
     }
-    public static AlertDialog.Builder dialog(Context context,String mensagem, String titulo){
+    public static AlertDialog.Builder dialog(Context context,String titulo,String mensagem){
 
         //Instanciar AlertDialog
         AlertDialog.Builder dialog = new AlertDialog.Builder( context );
@@ -148,7 +148,7 @@ public class CustomAlerts {
         return dialog;
 
     }
-    public static AlertDialog.Builder dialog(Context context,String mensagem, String titulo, int iconID){
+    public static AlertDialog.Builder dialog(Context context,String titulo,String mensagem, int iconID){
 
         //Instanciar AlertDialog
         AlertDialog.Builder dialog = new AlertDialog.Builder( context );
